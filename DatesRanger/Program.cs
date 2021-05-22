@@ -6,6 +6,7 @@ namespace DatesRanger
 {
     class Program
     {
+        private static readonly string _wrongAmountOfParaErrorText = "Wrong amount of parameters!";
         private static readonly string _theSameDatesErrorText = "You provided two same dates.";
         private static readonly string _incorrectFirstDateErrorText = "First date is incorrect.";
         private static readonly string _incorrectSecondDateErrorText = "Second date is incorrect.";
@@ -42,7 +43,7 @@ namespace DatesRanger
 
 
             }
-            else Console.WriteLine("Wrong amount of parameters!");
+            else Console.WriteLine(_wrongAmountOfParaErrorText);
             Console.WriteLine("Hello World!");
         }
     }
