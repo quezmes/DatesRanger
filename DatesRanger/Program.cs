@@ -6,26 +6,32 @@ namespace DatesRanger
 {
     class Program
     {
+        private static readonly string _theSameDatesErrorText = "You provided two same dates.";
         private static readonly string _incorrectFirstDateErrorText = "First date is incorrect.";
         private static readonly string _incorrectSecondDateErrorText = "Second date is incorrect.";
+        private static bool isDatesCorrect = true;
         private static DatesRangeService _dateRangeService = new DatesRangeService();
+
+        private static void ValidationFailure(string message)
+        {
+            Console.WriteLine(message);
+            isDatesCorrect = false;
+        }
 
         static void Main(string[] args)
         {
-            bool isDatesCorrect = true;
+            
             DateTime dt1, dt2;
 
             if (args.Count() == 2)
             {
                 if (DateTime.TryParse(args[0], out dt1) == false)
-                {
-                    Console.WriteLine(_incorrectFirstDateErrorText);
-                    isDatesCorrect = false;
-                }
+                    ValidationFailure(_incorrectFirstDateErrorText);
                 if (DateTime.TryParse(args[1], out dt2) == false)
-                {
-                    Console.WriteLine(_incorrectSecondDateErrorText);
-                }
+                    ValidationFailure(_incorrectSecondDateErrorText);
+                if (dt1 == dt2)
+                    ValidationFailure(_theSameDatesErrorText);
+
                 if (isDatesCorrect)
                 {
                     if (dt1 < dt2)
