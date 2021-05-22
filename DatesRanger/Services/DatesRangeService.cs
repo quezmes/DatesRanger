@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatesRanger.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,13 @@ namespace DatesRanger.Services
                     if (date1.Day == date2.Day)
                         return _theSameDatesErrorText;
                     else
-                        return GetDatesRangeTextresult(date1.ToString("dd"), date2.ToString("dd"));
+                        return GetDatesRangeTextResult(date1.ToString("dd"), date2.ToString("dd"));
                 else
-                    return "";
+                    return GetDatesRangeTextResult(date1.ToDayAndMonthString(), date2.ToDayAndMonthString());
             else
-                return GetDatesRangeTextresult(date1.ToShortDateString(), date2.ToShortDateString());
+                return GetDatesRangeTextResult(date1.ToShortDateString(), date2.ToShortDateString());
         }
 
-        private string GetDatesRangeTextresult(string date1, string date2) => string.Join(" - ", date1, date2);
+        private string GetDatesRangeTextResult(string date1, string date2) => string.Join(" - ", date1, date2);
     }
 }
