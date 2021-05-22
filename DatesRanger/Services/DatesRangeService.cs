@@ -15,6 +15,12 @@ namespace DatesRanger.Services
                 if (date1.Month == date2.Month)
                     if (date1.Day == date2.Day)
                         return _theSameDatesErrorText;
+                    else
+                        return "";
+                else
+                    return "";
+            else
+                return "";
         }
     }
 }
