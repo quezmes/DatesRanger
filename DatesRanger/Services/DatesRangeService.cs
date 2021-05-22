@@ -22,5 +22,7 @@ namespace DatesRanger.Services
             else
                 return "";
         }
+
+        private string GetDatesRangeTextresult(string date1, string date2) => string.Join(" - ", date1, date2);
     }
 }
