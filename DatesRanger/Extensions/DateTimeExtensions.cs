@@ -8,5 +8,9 @@ namespace DatesRanger.Extensions
 {
     public static class DateTimeExtensions
     {
+        public static string ToDayAndMonthString(this DateTime date)
+        {
+            return date.ToString();
+        }
     }
 }
