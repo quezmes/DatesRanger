@@ -16,11 +16,11 @@ namespace DatesRanger.Services
                     if (date1.Day == date2.Day)
                         return _theSameDatesErrorText;
                     else
-                        return "";
+                        return GetDatesRangeTextresult(date1.ToString("dd"), date2.ToString("dd"));
                 else
                     return "";
             else
-                return "";
+                return GetDatesRangeTextresult(date1.ToShortDateString(), date2.ToShortDateString());
         }
 
         private string GetDatesRangeTextresult(string date1, string date2) => string.Join(" - ", date1, date2);
