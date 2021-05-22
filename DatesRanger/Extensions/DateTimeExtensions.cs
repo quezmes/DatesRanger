@@ -21,16 +21,28 @@ namespace DatesRanger.Extensions
 
         public static string ToDayAndMonthString(this DateTime date)
         {
-            return date.ToString(GetMonthDataPattern());
+            return date.ToString(GetMonthAndDayDataPattern());
         }
 
-        private static string GetMonthDataPattern()
+        private static string GetMonthAndDayDataPattern()
         {
-            var shortDataPattern = DateTimeFormatInfo.CurrentInfo.ShortDatePattern;
-            char firstChar, secondChar;
+            var shortDatePattern = DateTimeFormatInfo.CurrentInfo.ShortDatePattern;
+            char firstDateChar, secondDateChar;
             if (GetMonthLocationPatter() == MonthLocationPattern.AfterDay)
-                return "";
-            return "";
+            {
+                firstDateChar = _dayChar;
+                secondDateChar = _monthChar;
+            }
+            else
+            {
+                firstDateChar = _dayChar;
+                secondDateChar = _monthChar;
+            }
+            var monthDatePattern = shortDatePattern[
+              shortDatePattern.IndexOf(firstDateChar)..(shortDatePattern.LastIndexOf(secondDateChar) + 1)
+              ]
+              .Replace(DateTimeFormatInfo.CurrentInfo.DateSeparator, "/");
+            return monthDatePattern;
         }
 
         private static MonthLocationPattern GetMonthLocationPatter()
