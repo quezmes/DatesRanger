@@ -43,7 +43,7 @@ namespace DatesRanger
 
 
             }
-            else ValidationFailure(_wrongAmountOfParaErrorText));
+            else ValidationFailure(_wrongAmountOfParaErrorText);
         }
     }
 }
