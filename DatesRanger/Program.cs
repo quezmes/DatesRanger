@@ -43,8 +43,7 @@ namespace DatesRanger
 
 
             }
-            else Console.WriteLine(_wrongAmountOfParaErrorText);
-            Console.WriteLine("Hello World!");
+            else ValidationFailure(_wrongAmountOfParaErrorText));
         }
     }
 }
