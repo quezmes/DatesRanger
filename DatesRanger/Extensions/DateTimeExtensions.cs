@@ -35,13 +35,16 @@ namespace DatesRanger.Extensions
             }
             else
             {
-                firstDateChar = _dayChar;
-                secondDateChar = _monthChar;
+                firstDateChar = _monthChar;
+                secondDateChar = _dayChar;
             }
+
+            var startIndex = shortDatePattern.IndexOf(firstDateChar);
+            var lastIndex = (shortDatePattern.LastIndexOf(secondDateChar) + 1);
             var monthDatePattern = shortDatePattern[
-              shortDatePattern.IndexOf(firstDateChar)..(shortDatePattern.LastIndexOf(secondDateChar) + 1)
-              ]
-              .Replace(DateTimeFormatInfo.CurrentInfo.DateSeparator, "/");
+             startIndex..lastIndex
+              ];
+              monthDatePattern = monthDatePattern.Replace(DateTimeFormatInfo.CurrentInfo.DateSeparator, "/");
             return monthDatePattern;
         }
 
