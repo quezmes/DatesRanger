@@ -10,13 +10,13 @@ namespace DatesRanger
         private static readonly string _theSameDatesErrorText = "You provided two same dates.";
         private static readonly string _incorrectFirstDateErrorText = "First date is incorrect.";
         private static readonly string _incorrectSecondDateErrorText = "Second date is incorrect.";
-        private static bool isDatesCorrect = true;
+        private static bool _validation = true;
         private static DatesRangeService _dateRangeService = new DatesRangeService();
 
         private static void ValidationFailure(string message)
         {
             Console.WriteLine(message);
-            isDatesCorrect = false;
+            _validation = false;
         }
 
         static void Main(string[] args)
@@ -33,15 +33,13 @@ namespace DatesRanger
                 if (dt1 == dt2)
                     ValidationFailure(_theSameDatesErrorText);
 
-                if (isDatesCorrect)
+                if (_validation)
                 {
                     if (dt1 < dt2)
                         Console.WriteLine(_dateRangeService.GetDatesRange(dt1, dt2));
                     else if (dt1 > dt2)
                         Console.WriteLine(_dateRangeService.GetDatesRange(dt2, dt1));
                 }
-
-
             }
             else ValidationFailure(_wrongAmountOfParaErrorText);
         }
