@@ -12,10 +12,10 @@ namespace DatesRanger.Tests
     {
 
         [Theory]
-        [InlineData("10/10/2020", "12/10/2020", "10 - 12")] //days
-        [InlineData("12.10.2020", "10/10/2020", "12 - 10")] // days reverse
-        [InlineData("10/10/2020", "12/11/2020", "10.10 - 12.11")] //month
-        [InlineData("10.10.2020", "12.9.2021", "10.10.2020 - 12.09.2021")] //short patter date
+        [InlineData("10/10/2020", "12/10/2020", "10 - 12.10.2020")] //days
+        [InlineData("12.10.2020", "10/10/2020", "12 - 10.10.2020")] // days reverse
+        [InlineData("10/10/2020", "12/11/2020", "10.10 - 12.11.2020")] //month
+        [InlineData("10.10.2020", "12.9.2021", "10.10.2020 - 12.09.2021")] //year
         public void GetDateRange_RangeResult(string dt1Str, string dt2Str, string expected)
         {
             //Arrange

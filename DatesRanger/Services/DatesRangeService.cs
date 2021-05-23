@@ -14,9 +14,9 @@ namespace DatesRanger.Services
         {
             if (date1.Year == date2.Year)
                 if (date1.Month == date2.Month)
-                        return GetDatesRangeTextResult(date1.ToString("dd"), date2.ToString("dd"));
+                        return GetDatesRangeTextResult(date1.ToString("dd"), date2.ToShortDateString());
                 else
-                    return GetDatesRangeTextResult(date1.ToDayAndMonthString(), date2.ToDayAndMonthString());
+                    return GetDatesRangeTextResult(date1.ToDayAndMonthString(), date2.ToShortDateString());
             else
                 return GetDatesRangeTextResult(date1.ToShortDateString(), date2.ToShortDateString());
         }
