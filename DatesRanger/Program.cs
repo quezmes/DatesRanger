@@ -11,7 +11,7 @@ namespace DatesRanger
         private static readonly string _incorrectFirstDateErrorText = "First date is incorrect.";
         private static readonly string _incorrectSecondDateErrorText = "Second date is incorrect.";
         private static bool _validation = true;
-        private static DatesRangeService _dateRangeService = new();
+        private static IDatesRangeService _dateRangeService = new DatesRangeService();
 
         private static void ValidationFailure(string message)
         {
@@ -26,9 +26,9 @@ namespace DatesRanger
 
             if (args.Length == 2)
             {
-                if (DateTime.TryParse(args[0], out dt1) == false)
+                if (!DateTime.TryParse(args[0], out dt1))
                     ValidationFailure(_incorrectFirstDateErrorText);
-                if (DateTime.TryParse(args[1], out dt2) == false)
+                if (!DateTime.TryParse(args[1], out dt2))
                     ValidationFailure(_incorrectSecondDateErrorText);
                 if (dt1 == dt2 && _validation)
                     ValidationFailure(_theSameDatesErrorText);

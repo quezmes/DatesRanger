@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DatesRanger.Services
 {
-    public class DatesRangeService
+    public class DatesRangeService : IDatesRangeService
     {
 
         public string GetDatesRange(DateTime date1, DateTime date2)
