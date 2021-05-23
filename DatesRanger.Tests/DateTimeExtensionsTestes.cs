@@ -17,7 +17,7 @@ namespace DatesRanger.Tests
         [Theory]
         [InlineData("09.12.2020", "en-US", "12/9")]
         [InlineData("09.12.2020", "pl-PL", "09.12")]
-        public void ToDayAndMonthString_CorrectStringResult(string date, string culture, string expected)
+        public void ToDayAndMonthString_CorrectStringResultForSpecificCulture(string date, string culture, string expected)
         {
             //Arrange
             DateTime dateToTest = DateTime.Parse(date);
